@@ -1,0 +1,134 @@
+@mixin backface-visibility () {
+	-webkit-backface-visibility: hidden;
+	   -moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		 -o-backface-visibility: hidden;
+			backface-visibility: hidden;
+}
+
+@mixin showback {
+	background: $brand;
+	color: lighten($brand, 50%);
+}
+@mixin border-radius ($size) {
+	border-radius: $size;
+}
+@mixin transition ($properties...) {
+	@if length($properties) < 1 {
+		$properties: all .3s ease-in;
+	}
+	/*-webkit-transition: -webkit-#{$properties};
+	   -moz-transition: -moz-$properties;
+		-ms-transition: -ms-$properties;
+		 -o-transition: -o-$properties;
+			transition: $properties;*/
+	-webkit-transition: $properties;
+	   -moz-transition: $properties;
+		-ms-transition: $properties;
+		 -o-transition: $properties;
+			transition: $properties;
+} /* //transition */
+
+@mixin transition2 ($properties...) {
+	@if length($properties) < 1 {
+		$properties: all .3s cubic-bezier(0.21, 0.98, 0.6, 0.99);
+	}
+	-webkit-transition: $properties;
+	   -moz-transition: $properties;
+		-ms-transition: $properties;
+		 -o-transition: $properties;
+			transition: $properties;
+} /* //transition */
+
+@mixin transition-property ($properties...) {
+	-webkit-transition-property: $properties;
+	   -moz-transition-property: $properties;
+		 -o-transition-property: $properties;
+			transition-property: $properties;
+}
+
+@mixin transition-timing-function ($timing: ease) {
+	-webkit-transition-timing-function: $timing;
+	   -moz-transition-timing-function: $timing;
+		 -o-transition-timing-function: $timing;
+			transition-timing-function: $timing;
+}
+
+@mixin transition-duration ($duration: .3s) {
+	-webkit-transition-duration: $duration;
+	   -moz-transition-duration: $duration;
+		 -o-transition-duration: $duration;
+			transition-duration: $duration;
+}
+
+@mixin transition-delay ($delay...) {
+	@if length($delay) < 1 {
+		$delay: .4s;
+	}
+	-webkit-transition-delay: $delay;
+	   -moz-transition-delay: $delay;
+		 -o-transition-delay: $delay;
+			transition-delay: $delay;
+}
+
+@mixin transform ($properties...) {
+	-webkit-transform: $properties;
+	   -moz-transform: $properties;
+		-ms-transform: $properties;
+		 -o-transform: $properties;
+			transform: $properties;
+} /* //transform */
+
+@mixin animation ($animation-values) {
+	-webkit-animation: $animation-values;/* Safari 4+ */
+	-moz-animation: $animation-values;/* Fx 5+ */
+	-ms-animation: $animation-values;/* Fx 5+ */
+	-o-animation: $animation-values;/* Opera 12+ */
+	animation: $animation-values;/* IE 10+, Fx 29+ */
+} /* //animation */
+@mixin animation-delay ($delay : 400ms) {
+	-webkit-animation-delay: $delay;
+	   -moz-animation-delay: $delay;
+		-ms-animation-delay: $delay;
+		 -o-animation-delay: $delay;
+			animation-delay: $delay;
+}
+
+@mixin box-shadow ($shadow-properties...) {
+	@if length($shadow-properties) < 1 {
+		$shadow-properties: 0 1px 3px rgba($black, 0.3);
+	}
+	-webkit-box-shadow: $shadow-properties;
+	-moz-box-shadow: $shadow-properties;
+	box-shadow: $shadow-properties;
+}
+
+@mixin border-radius($radius: 4px) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+			border-radius: $radius;
+}
+
+@mixin linear-gradient ($start-color, $end-color, $direction) {
+	background: $start-color; /* Old browsers */
+	background: -moz-linear-gradient($direction, $start-color 0%, $end-color 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient($direction, $start-color 0%,$end-color 100%); /* Chrome10-25,Safari5.1-6 */
+	$dir : if($direction == left, right, $direction);
+	background: linear-gradient(to $dir, $start-color 0%,$end-color 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+@mixin opacity ($opacity: 1) {
+	zoom: 1;
+	filter: alpha(opacity=$opacity*100);
+	opacity: $opacity;
+}
+
+
+@mixin appearance ( $value : none ) {
+	-webkit-appearance: $value;
+	   -moz-appearance: $value;
+		-ms-appearance: $value;
+			appearance: $value;
+}
